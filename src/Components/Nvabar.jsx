@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const Nvabar = () => {
+const Navbar = () => {
 
 
     const links = <>
@@ -64,4 +64,4 @@ const Nvabar = () => {
     );
 };
 
-export default Nvabar;
+export default Navbar;
