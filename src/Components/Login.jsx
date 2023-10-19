@@ -15,7 +15,7 @@ const Login = () => {
 
     return (
         <div className="my-20 w-3/4 p-4 bg-[#ff81c0] rounded-lg mx-auto text-center">
-             <h2 className="text-3xl font-bold my-10 text-[#ffedc0]">Please Login</h2>
+             <h2 className="text-3xl font-bold my-10 text-[#ffedc0]">Login</h2>
 
             <form onSubmit={handleLogIn}>
                 <input type="email" name="email" placeholder="Your Email" className="border mx-auto p-4 block mb-4 w-3/4" required />
