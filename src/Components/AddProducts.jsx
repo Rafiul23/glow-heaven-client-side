@@ -25,12 +25,12 @@ const AddProducts = () => {
 
     return (
         <div className="my-20 w-3/4 p-4 bg-[#ff81c0] rounded-lg mx-auto text-center">
-            
+
             <h2 className="text-3xl font-bold my-10 text-[#ffedc0]">Add Your Products</h2>
 
             <form onSubmit={handleAddProduct}>
                 <input type="text" name="productImg" className="
-                border mx-auto p-4 block my-4 w-3/4" placeholder="Product's Image" id="" />
+                border mx-auto p-4 block my-4 w-3/4" placeholder="Product's Image URL" id="" />
                 <br />
                 <input type="text" name="name" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Product's name" id="" />
                 <br />

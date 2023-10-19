@@ -8,25 +8,25 @@ const Navbar = () => {
 
         <li className='mt-3 mr-2'><NavLink to='/'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-white text-[#ff81c0] font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
+                isPending ? "pending" : isActive ? "bg-[#36aabe] text-[#ffffff] font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
             }
         >Home</NavLink></li>
 
         <li className='mt-3 mr-2'><NavLink to='/addProduct'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-white text-[#ff81c0] font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
+                isPending ? "pending" : isActive ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
             }
         >Add Product</NavLink></li>
 
         <li className='mt-3 mr-2'><NavLink to='/myCart'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-white text-[#ff81c0] font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
+                isPending ? "pending" : isActive ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
             }
         >My Cart</NavLink></li>
 
         <li className='mt-3 mr-2'><NavLink to='/login'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-white text-[#ff81c0] font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
+                isPending ? "pending" : isActive ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
             }
         >Login</NavLink></li>
 
@@ -48,7 +48,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a className=" text-[#FFEDC0] normal-case font-bold text-3xl">Aesthetica</a>
+                <a className=" text-[#36aabe] normal-case font-bold text-3xl">Aesthetica</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu-horizontal px-1">
@@ -58,7 +58,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/register' className='btn bg-[#FFEDC0] '>Register</Link>
+                <Link to='/register' className='btn bg-[#5ebccd] text-white '>Register</Link>
             </div>
         </div>
     );
