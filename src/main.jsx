@@ -13,11 +13,13 @@ import MyCart from './Components/MyCart.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import BrandDetails from './Components/BrandDetails';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
