@@ -48,7 +48,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a className=" text-blue-500 normal-case font-bold text-3xl">Aesthetica</a>
+                <a className=" text-[#FFEDC0] normal-case font-bold text-3xl">Aesthetica</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu-horizontal px-1">
@@ -58,7 +58,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/register' className='btn bg-blue-500 text-white'>Register</Link>
+                <Link to='/register' className='btn bg-[#FFEDC0] '>Register</Link>
             </div>
         </div>
     );

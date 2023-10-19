@@ -12,6 +12,7 @@ import AddProducts from './Components/AddProducts.jsx';
 import MyCart from './Components/MyCart.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
+import BrandDetails from './Components/BrandDetails';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/details/:brand_name",
+        element: <BrandDetails></BrandDetails>
       }
     ]
   },

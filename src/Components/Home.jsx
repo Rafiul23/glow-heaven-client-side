@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import Brand from "./Brand";
+import Footer from "./Footer";
 
 
 const Home = () => {
@@ -16,6 +17,8 @@ const Home = () => {
                 brands.map(brand => <Brand key={brand.id} brand={brand}></Brand>)
             }
            </div>
+
+           <Footer></Footer>
         </div>
     );
 };
