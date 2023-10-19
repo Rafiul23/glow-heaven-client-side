@@ -5,12 +5,12 @@ const Login = () => {
 
     const handleLogIn = e =>{
         e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
 
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
-        e.target.email.value = '';
-        e.target.password.value = '';
+        form.email.value = '';
+        form.password.value = '';
     }
 
     return (
