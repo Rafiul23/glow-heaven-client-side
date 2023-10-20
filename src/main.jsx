@@ -15,6 +15,8 @@ import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import BrandDetails from './Components/BrandDetails';
 import ErrorPage from './Components/ErrorPage.jsx';
+import ProductDetails from './Components/ProductDetails.jsx';
+import UpdateProduct from './Components/UpdateProduct.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,15 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/productDetails/:id",
+        element: <ProductDetails></ProductDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateProduct></UpdateProduct>
       },
       {
         path: "/details/:brand_name",
