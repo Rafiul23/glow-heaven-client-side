@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { ToastContainer } from 'react-toastify';
 import './index.css'
 import {
   createBrowserRouter,
@@ -44,7 +45,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:brand_name",
-        element: <BrandDetails></BrandDetails>
+        element: <BrandDetails></BrandDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand_name}`)
       }
     ]
   },
@@ -53,5 +55,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <RouterProvider router={router} />
+     <ToastContainer></ToastContainer>
   </React.StrictMode>,
 )

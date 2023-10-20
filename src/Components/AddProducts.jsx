@@ -1,4 +1,5 @@
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddProducts = () => {
 
@@ -21,6 +22,30 @@ const AddProducts = () => {
         form.price.value = '';
         form.description.value = '';
         form.rating.value = '';
+
+        const newProduct = {
+            productImg,
+            productName,
+            brand_name,
+            productType,
+            price,
+            description,
+            rating
+        }
+
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.insertedId){
+                toast.success('Product added successfully');
+            }
+        })
     }
 
     return (
