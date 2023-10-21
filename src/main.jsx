@@ -18,6 +18,7 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
 import UpdateProduct from './Components/UpdateProduct.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProducts></AddProducts>
+        element: <PrivateRoute><AddProducts></AddProducts></PrivateRoute>
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
         
       },
       {
@@ -49,12 +50,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
       },
       {
         path: "/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
       },
       {

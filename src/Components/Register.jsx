@@ -85,38 +85,44 @@ const Register = () => {
     }
 
     return (
-        <div className="my-20 w-3/4 p-4 bg-[#ff81c0] rounded-lg mx-auto text-center">
-            <h2 className="text-3xl font-bold my-10 text-[#ffedc0]">Register</h2>
+        <div>
+            <div className="my-20 w-3/4 p-4 bg-[#ff81c0] rounded-lg mx-auto text-center">
+                <h2 className="text-3xl font-bold my-10 text-[#ffedc0]">Register</h2>
 
-            <form onSubmit={handleRegister}>
-
-
-                <input type="text" name="name" id="name" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Your Name" required />
+                <form onSubmit={handleRegister}>
 
 
-                <input type="email" name="email" id="email" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Your Email" required />
+                    <input type="text" name="name" id="name" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Your Name" required />
 
 
-                <input type="password" name="password" className="border mx-auto p-4 block my-4 w-3/4" id="password" placeholder="Your Password" required />
+                    <input type="email" name="email" id="email" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Your Email" required />
 
 
-                <input type="text" name="imgURL" id="photo" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Your Image URL" />
+                    <input type="password" name="password" className="border mx-auto p-4 block my-4 w-3/4" id="password" placeholder="Your Password" required />
 
-                <button className="btn bg-[#ffedc0]">Submit</button>
 
-                <p className="my-3 font-extrabold text-xl">Already have an account? Please <Link className="
+                    <input type="text" name="imgURL" id="photo" className="border mx-auto p-4 block my-4 w-3/4" placeholder="Your Image URL" />
+
+                    <button className="btn bg-[#ffedc0]">Submit</button>
+
+                    <p className="my-3 font-extrabold text-xl">Already have an account? Please <Link className="
                 underline text-blue-700 font-bold" to='/login'>Login</Link> </p>
 
-            </form>
+                </form>
 
-            {
+
+
+                <p className="text-xl my-3 text-blue-700">Or</p>
+
+                <button onClick={handleGoogleSignIn} className="btn mb-3  mt-4"><FcGoogle></FcGoogle>Login with Google</button>
+
+            </div>
+
+           <div className="text-center mb-5">
+           {
                 success ? <p className="text-green-500 font-bold">{success}</p> : <p className="text-red-500 font-bold">{error}</p>
             }
-
-            <p className="text-xl my-3 text-blue-700">Or</p>
-
-            <button onClick={handleGoogleSignIn} className="btn mb-3  mt-4"><FcGoogle></FcGoogle>Login with Google</button>
-
+           </div>
         </div>
     );
 };
