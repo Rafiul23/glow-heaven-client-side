@@ -41,7 +41,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="card card-side bg-base-100 p-4 shadow-xl">
+        <div className="card md:flex flex-col card-side bg-base-100 p-4 shadow-xl">
             <div className='flex-1'>
             <figure><img src={productImg} /></figure>
             </div>

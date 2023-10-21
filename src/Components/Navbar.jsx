@@ -56,7 +56,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a className=" text-[#36aabe] normal-case font-bold text-3xl">Aesthetica</a>
+                <a className=" text-[#36aabe] normal-case font-bold text-lg md:text-3xl">Aesthetica</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu-horizontal px-1">
