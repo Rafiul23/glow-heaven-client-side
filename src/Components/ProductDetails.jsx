@@ -1,11 +1,44 @@
-
+import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from './AuthProvider';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetails = () => {
 
     const product = useLoaderData();
 
     const { productImg, productName, brand_name, productType, price, description, rating } = product;
+
+    const { user } = useContext(AuthContext);
+    const email = user?.email;
+
+    const handleAddCart = ()=>{
+        const cartInfo = {
+            email,
+            productImg, 
+            productName, 
+            brand_name, 
+            productType, 
+            price, 
+            description, 
+            rating
+        }
+
+        fetch('http://localhost:5000/carts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cartInfo)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.insertedId){
+                toast.success('Added to Cart successfully');
+            }
+        })
+    }
 
     return (
         <div className="card card-side bg-base-100 p-4 shadow-xl">
@@ -20,7 +53,7 @@ const ProductDetails = () => {
                 <p>Rating: {rating} / 5</p>
                 <p>Price: ${price}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn bg-[#ff81c0] w-full">Add to cart</button>
+                    <button onClick={handleAddCart} className="btn bg-[#ff81c0] w-full">Add to cart</button>
                 </div>
             </div>
         </div>

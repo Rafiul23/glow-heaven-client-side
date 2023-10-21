@@ -32,11 +32,11 @@ const Navbar = () => {
             }
         >My Cart</NavLink></li>
 
-        <li className='mt-3 mr-2'><NavLink to='/login'
+        <li className='mt-3 mr-2'><NavLink to='/register'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg " : "bg-[#FF81C0] p-3 rounded-lg text-white"
             }
-        >Login</NavLink></li>
+        >Register</NavLink></li>
 
 
 
