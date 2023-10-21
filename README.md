@@ -1,8 +1,7 @@
-# React + Vite
+website live link -> https://6533e1ead9bdce30108c9785--glittering-dragon-4a6433.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<li>This website is about makeup brand shop</li>
+<li>Here a user have to login with email and password or by google to visit different pages.</li>
+<li>A logged in user can add product, can update a product's details.</li>
+<li>A loggedin user can also add his favorite products to cart collections.And the cart collection is different for different users.</li>
+<li>If a loggedin user wants to delete a product from his cart collection, he can do it by clicking the delete button. </li>

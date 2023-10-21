@@ -7,7 +7,7 @@ const Cart = ({cart, carts, setCarts}) => {
 
     const handleDelete = (_id)=>{
 
-        fetch(`http://localhost:5000/carts/${_id}`,{
+        fetch(`https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/carts/${_id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

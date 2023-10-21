@@ -33,7 +33,7 @@ const AddProducts = () => {
             rating
         }
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

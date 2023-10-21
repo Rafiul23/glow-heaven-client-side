@@ -10,7 +10,7 @@ const MyCart = () => {
     const email = user?.email;
 
    useEffect(()=>{
-    fetch(`http://localhost:5000/carts/${email}`)
+    fetch(`https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/carts/${email}`)
     .then(res => res.json())
     .then(data => setCarts(data))
    },[email])

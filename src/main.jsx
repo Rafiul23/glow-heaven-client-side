@@ -51,17 +51,17 @@ const router = createBrowserRouter([
       {
         path: "/productDetails/:id",
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({params})=> fetch(`https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/product/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({params})=> fetch(`https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/product/${params.id}`)
       },
       {
         path: "/details/:brand_name",
         element: <BrandDetails></BrandDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand_name}`)
+        loader: ({params})=> fetch(`https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/products/${params.brand_name}`)
       }
     ]
   },
