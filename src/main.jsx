@@ -17,6 +17,7 @@ import BrandDetails from './Components/BrandDetails';
 import ErrorPage from './Components/ErrorPage.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
 import UpdateProduct from './Components/UpdateProduct.jsx';
+import AuthProvider from './Components/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -66,7 +67,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+     <AuthProvider>
      <RouterProvider router={router} />
      <ToastContainer></ToastContainer>
+     </AuthProvider>
   </React.StrictMode>,
 )

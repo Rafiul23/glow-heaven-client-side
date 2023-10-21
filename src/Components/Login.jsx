@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
+import { useContext, useState } from "react";
 
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     const handleLogIn = e =>{
         e.preventDefault();
@@ -11,6 +17,16 @@ const Login = () => {
 
         form.email.value = '';
         form.password.value = '';
+
+        signIn(email, password)
+        .then(result =>{
+            console.log(result.user);
+            navigate(location?.state ? location.state : "/")
+        })
+        .catch(error =>{
+            console.log(error);
+            setError('Invalid email or password.Please try again!');
+        })
     }
 
     return (
@@ -27,6 +43,11 @@ const Login = () => {
                 <p className="mt-3 text-xl font-extrabold">New to our website? Please <Link className="
                 underline text-blue-700 font-bold" to='/register'>Register</Link> </p>
             </form>
+
+            {
+                error && <p className="text-red-500 font-bold">{error}</p>
+            }
+
 
         </div>
     );
