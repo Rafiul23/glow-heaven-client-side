@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCrlUFWtxWFyu67Pv5s4WToyQzf1F-5rcQ",
-  authDomain: "aesthetica-auth.firebaseapp.com",
-  projectId: "aesthetica-auth",
-  storageBucket: "aesthetica-auth.appspot.com",
-  messagingSenderId: "825560535261",
-  appId: "1:825560535261:web:91d146d5e7d27d289b4b34"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
