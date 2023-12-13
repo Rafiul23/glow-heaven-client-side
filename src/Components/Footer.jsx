@@ -1,8 +1,17 @@
-
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 1 } },
+      };
     return (
-        <footer className="footer p-10 bg-black text-[#ff81c0]">
+        <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        >
+            <footer className="footer p-10 bg-black text-[#ff81c0]">
             <nav>
                 <header className="footer-title">Services</header>
                 <a className="link link-hover">Branding</a>
@@ -24,6 +33,7 @@ const Footer = () => {
                 <a className="link link-hover">Cookie policy</a>
             </nav>
         </footer>
+        </motion.div>
     );
 };
 

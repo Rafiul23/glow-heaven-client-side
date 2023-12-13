@@ -1,10 +1,21 @@
 import offer_1 from '../assets/offer_1.jpg';
 import offer_2 from '../assets/offer_2.jpg';
 import offer_3 from '../assets/offer_3.jpg';
+import { motion } from 'framer-motion';
 
 const Offers = () => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 1 } },
+      };
+
     return (
-        <div className="my-20 p-5">
+       <motion.div
+       variants={containerVariants}
+       initial="hidden"
+       animate="visible"
+       >
+         <div className="my-20 p-5">
             <h2 className='text-center text-violet-600 font-bold my-4 text-3xl'>Discount offers are going on</h2>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <div className="rounded-lg w-full h-[300px] bg-green-500">
@@ -21,6 +32,7 @@ const Offers = () => {
             </div>
             </div>
         </div>
+       </motion.div>
     );
 };
 
