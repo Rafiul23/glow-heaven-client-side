@@ -20,6 +20,9 @@ import UpdateProduct from './Components/UpdateProduct.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,9 +72,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+     
      <AuthProvider>
      <RouterProvider router={router} />
      <ToastContainer></ToastContainer>
      </AuthProvider>
+     
   </React.StrictMode>,
 )

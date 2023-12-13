@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { motion } from 'framer-motion';
+import Sticky from 'react-stickynode';
 
 const Navbar = () => {
 
@@ -56,6 +57,7 @@ const Navbar = () => {
             initial="hidden"
             animate="visible"
         >
+            <Sticky enabled={true} top={0} bottomBoundary={700}>
             <div className="navbar py-8 bg-[#000000]">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -97,6 +99,7 @@ const Navbar = () => {
 
                 </div>
             </div>
+            </Sticky>
         </motion.div>
     );
 };
