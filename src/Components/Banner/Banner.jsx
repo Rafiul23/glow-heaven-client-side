@@ -1,6 +1,6 @@
-import slider_1 from '../assets/slider_1.png';
-import slider_2 from '../assets/slider_2.png';
-import slider_3 from '../assets/slider_3.png';
+import slider_1 from '../../assets/slider_1.png';
+import slider_2 from '../../assets/slider_2.png';
+import slider_3 from '../../assets/slider_3.png';
 
 const Banner = () => {
     return (

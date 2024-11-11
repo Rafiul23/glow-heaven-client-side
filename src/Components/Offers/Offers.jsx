@@ -1,6 +1,6 @@
-import offer_1 from '../assets/offer_1.jpg';
-import offer_2 from '../assets/offer_2.jpg';
-import offer_3 from '../assets/offer_3.jpg';
+import offer_1 from '../../assets/offer_1.jpg';
+import offer_2 from '../../assets/offer_2.jpg';
+import offer_3 from '../../assets/offer_3.jpg';
 import { motion } from 'framer-motion';
 
 const Offers = () => {
