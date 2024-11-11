@@ -18,60 +18,60 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li className="mt-3 mr-2">
+      <li>
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "bg-[#36aabe] text-[#ffffff] font-bold p-3 rounded-lg "
-              : "bg-[#FF81C0] p-3 rounded-lg text-white"
+              ? "text-[#800] font-bold underline"
+              : ""
           }
         >
           Home
         </NavLink>
       </li>
 
-      <li className="mt-3 mr-2">
+      <li>
         <NavLink
           to="/addProduct"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg "
-              : "bg-[#FF81C0] p-3 rounded-lg text-white"
+              ? "text-[#800] font-bold underline"
+              : ""
           }
         >
           Add Product
         </NavLink>
       </li>
 
-      <li className="mt-3 mr-2">
+      <li>
         <NavLink
           to="/myCart"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg "
-              : "bg-[#FF81C0] p-3 rounded-lg text-white"
+              ? " text-[#800] font-bold underline"
+              : ""
           }
         >
           My Cart
         </NavLink>
       </li>
 
-      <li className="mt-3 mr-2">
+      <li>
         <NavLink
           to="/register"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "bg-[#36aabe] text-white font-bold p-3 rounded-lg "
-              : "bg-[#FF81C0] p-3 rounded-lg text-white"
+              ? " text-[#800] underline font-bold"
+              : ""
           }
         >
           Register
@@ -112,38 +112,25 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className=" text-[#fc0362] normal-case font-bold text-lg md:text-3xl">
-              Aesthetica
+            <a className=" text-[#800000] normal-case font-bold text-lg md:text-3xl">
+              Glow Haven
             </a>
           </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu-horizontal px-1">{links}</ul>
-          </div>
-          <div className="navbar-end">
-            {user && (
-              <img
-                className="rounded-full w-8 h-8 md:w-10 mr-3 md:h-10"
-                src={user?.photoURL}
-              />
-            )}
-
-            {user && (
-              <p className="text-white text-sm md:text-lg mr-3 font-bold">
-                {user?.displayName}
-              </p>
-            )}
-
+          
+          <div className="navbar-end hidden lg:flex">
+      
+            <ul className="flex gap-4 px-1">{links}</ul>
             {user ? (
               <Link
                 onClick={handleLogOut}
-                className="btn bg-[#5ebccd] text-white p-2 rounded-lg mr-4"
+                className="btn bg-[#800] text-white p-2 rounded-lg mr-4"
               >
                 LogOut
               </Link>
             ) : (
               <Link
                 to="/login"
-                className="btn bg-[#5ebccd] text-white p-2 rounded-lg mr-4"
+                className="btn bg-[#800] text-white p-2 rounded-lg mr-4"
               >
                 Login
               </Link>
