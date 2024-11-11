@@ -25,7 +25,7 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "text-[#800] font-bold underline"
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
               : ""
           }
         >
@@ -40,7 +40,7 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "text-[#800] font-bold underline"
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
               : ""
           }
         >
@@ -55,7 +55,7 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? " text-[#800] font-bold underline"
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
               : ""
           }
         >
@@ -70,7 +70,7 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? " text-[#800] underline font-bold"
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent underline font-bold"
               : ""
           }
         >
@@ -112,7 +112,7 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className=" text-[#800000] normal-case font-bold text-lg md:text-3xl">
+            <a className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent normal-case font-bold text-lg md:text-3xl">
               Glow Haven
             </a>
           </div>

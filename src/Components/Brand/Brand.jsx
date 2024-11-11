@@ -16,7 +16,7 @@ const Brand = ({ brand }) => {
                 <figure><img src={brand_img} className="w-full h-[250px]" /></figure>
                 <div className="card-body bg-[#FFDBAC]">
                     <Link to={`/details/${brand_name}`}>
-                        <h2 className="card-title font-bold text-2xl">{brand_name}</h2>
+                        <h2 className="card-title font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent text-2xl">{brand_name}</h2>
                     </Link>
                 </div>
             </div>
