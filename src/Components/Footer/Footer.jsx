@@ -11,7 +11,7 @@ const Footer = () => {
         initial="hidden"
         animate="visible"
         >
-            <footer className="footer p-10 bg-black text-[#ff81c0]">
+            <footer className="footer p-10 bg-[#FFDBAC] text-[#5C4033 ]">
             <nav>
                 <header className="footer-title">Services</header>
                 <a className="link link-hover">Branding</a>

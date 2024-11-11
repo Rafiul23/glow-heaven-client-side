@@ -4,6 +4,7 @@ import Brand from "../Brand/Brand";
 import Footer from "../Footer/Footer";
 import Offers from "../Offers/Offers";
 import Speciality from "../Speciality/Speciality";
+import AllBrands from "../AllBrands/AllBrands";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -11,12 +12,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-
-      <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 lg:my-10">
-        {brands.map((brand) => (
-          <Brand key={brand.id} brand={brand}></Brand>
-        ))}
-      </div>
+      <AllBrands></AllBrands>
       <Offers></Offers>
       <Speciality></Speciality>
       

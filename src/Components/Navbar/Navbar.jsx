@@ -82,8 +82,8 @@ const Navbar = () => {
 
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible">
-      <Sticky enabled={true} top={0} bottomBoundary={700}>
-        <div className="navbar py-8 ">
+      <Sticky enabled={true} innerZ={10}>
+        <div className="navbar py-4 bg-[#FFDBAC]">
           <div className="navbar-start">
             <div className="dropdown">
               <label
