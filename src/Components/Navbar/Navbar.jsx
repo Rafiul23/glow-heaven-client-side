@@ -60,6 +60,7 @@ const Navbar = () => {
           }
         >
           My Cart
+          <div className="badge badge-secondary ml-2">+0</div>
         </NavLink>
       </li>
 
@@ -113,7 +114,7 @@ const Navbar = () => {
               </ul>
             </div>
             <a className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent normal-case font-bold text-lg md:text-3xl">
-              Glow Haven
+              Glow Heaven
             </a>
           </div>
           

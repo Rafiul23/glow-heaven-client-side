@@ -1,15 +1,33 @@
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import loginImage from '../../assets/login.png';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [hidden, setHidden] = useState(true);
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
+    if (validateCaptcha(user_captcha_value)) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -39,7 +57,7 @@ const Login = () => {
       </div>
       <div className="card bg-base-100 w-full shadow-xl">
         <form className="card-body" onSubmit={handleLogin}>
-          <h2 className="text-3xl text-center py-6 font-bold">
+          <h2 className="text-3xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent text-center py-6 font-bold">
             Login Now!
           </h2>
           <div className="form-control">
@@ -66,7 +84,7 @@ const Login = () => {
               required
             />
             <p className="pt-6">
-              New to Bistro Boss? Please,{" "}
+              New to Glow Heaven? Please,{" "}
               <Link
                 to="/signup"
                 className="text-[#800] font-bold underline"
@@ -98,7 +116,7 @@ const Login = () => {
           </div>
         </form>
 
-        <div className="relative -top-[360px]">
+        <div className="relative -top-[320px]">
           <div className="absolute right-16">
             <button onClick={() => setHidden(!hidden)}>
               {hidden ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
@@ -106,9 +124,9 @@ const Login = () => {
           </div>
         </div>
         <p className="text-center my-2 divider">Or</p>
-      <div className="py-5 text-center">
+      {/* <div className="py-5 text-center">
         <SocialLogin></SocialLogin>
-      </div>
+      </div> */}
       </div>
     </div>
   </div>
