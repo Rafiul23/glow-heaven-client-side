@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Brand from "../Brand/Brand";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const AllBrands = () => {
    
@@ -13,11 +14,18 @@ const AllBrands = () => {
     })
 
     return (
-        <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 lg:my-10">
+      <>
+      <SectionTitle
+      subHeading={'Check it out'}
+      heading={'Our brands'}
+      ></SectionTitle>
+      <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 lg:my-10">
         {Brands.map((brand) => (
           <Brand key={brand._id} brand={brand}></Brand>
         ))}
       </div>
+      </>
+        
     );
 };
 

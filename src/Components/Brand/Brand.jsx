@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 const Brand = ({ brand }) => {
 
-    // const containerVariants = {
-    //     hidden: { opacity: 0 },
-    //     visible: { opacity: 1, transition: { duration: 1 } },
-    // };
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 1 } },
+    };
 
     const { brand_img, brand_name } = brand;
 
