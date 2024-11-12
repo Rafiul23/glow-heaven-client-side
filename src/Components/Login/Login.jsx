@@ -1,13 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useContext, useState } from "react";
+import loginImage from '../../assets/login.png';
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [hidden, setHidden] = useState(true);
 
-  const handleLogIn = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -28,42 +32,86 @@ const Login = () => {
   };
 
   return (
-    <div className="my-20 w-3/4 p-4 bg-[#ff81c0] rounded-lg mx-auto text-center">
-      <h2 className="text-3xl font-bold my-10 text-[#ffedc0]">Login</h2>
+    <div className="py-10 bg-base-200">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="w-full flex justify-center items-center">
+        <img src={loginImage} alt="login image" width={500} height={500} />
+      </div>
+      <div className="card bg-base-100 w-full shadow-xl">
+        <form className="card-body" onSubmit={handleLogin}>
+          <h2 className="text-3xl text-center py-6 font-bold">
+            Login Now!
+          </h2>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type={hidden ? "password" : "text"}
+              placeholder="Password"
+              name="password"
+              className="input input-bordered"
+              required
+            />
+            <p className="pt-6">
+              New to Bistro Boss? Please,{" "}
+              <Link
+                to="/signup"
+                className="text-[#800] font-bold underline"
+              >
+                Sign Up!
+              </Link>{" "}
+            </p>
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <LoadCanvasTemplate />
+            </label>
+            <input
+              type="text"
+              onBlur={handleValidateCaptcha}
+              placeholder="Type the captcha above"
+              name="captcha"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control mt-6">
+            <button
+              disabled={disabled}
+              className="btn bg-[#ffdbac] text-[#800]"
+            >
+              Login
+            </button>
+          </div>
+        </form>
 
-      <form onSubmit={handleLogIn}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          className="border mx-auto p-4 block mb-4 w-3/4"
-          required
-        />
-
-        <input
-          type="password"
-          name="password"
-          className="border mx-auto p-4 block mb-4 w-3/4"
-          placeholder="Password"
-          required
-        />
-
-        <button className="btn bg-[#ffedc0]">Submit</button>
-
-        <p className="mt-3 text-xl font-extrabold">
-          New to our website? Please{" "}
-          <Link
-            className="
-                underline text-blue-700 font-bold"
-            to="/register"
-          >
-            Register
-          </Link>{" "}
-        </p>
-      </form>
-
-      {error && <p className="text-red-500 font-bold">{error}</p>}
+        <div className="relative -top-[360px]">
+          <div className="absolute right-16">
+            <button onClick={() => setHidden(!hidden)}>
+              {hidden ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+            </button>
+          </div>
+        </div>
+        <p className="text-center my-2 divider">Or</p>
+      <div className="py-5 text-center">
+        <SocialLogin></SocialLogin>
+      </div>
+      </div>
     </div>
+  </div>
   );
 };
 
