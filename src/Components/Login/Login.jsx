@@ -8,6 +8,7 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useAuth();
@@ -86,10 +87,10 @@ const Login = () => {
             <p className="pt-6">
               New to Glow Heaven? Please,{" "}
               <Link
-                to="/signup"
+                to="/register"
                 className="text-[#800] font-bold underline"
               >
-                Sign Up!
+                Register!
               </Link>{" "}
             </p>
           </div>
@@ -124,9 +125,9 @@ const Login = () => {
           </div>
         </div>
         <p className="text-center my-2 divider">Or</p>
-      {/* <div className="py-5 text-center">
+      <div className="py-5 text-center">
         <SocialLogin></SocialLogin>
-      </div> */}
+      </div>
       </div>
     </div>
   </div>
