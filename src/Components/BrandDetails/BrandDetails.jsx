@@ -44,10 +44,12 @@ const BrandDetails = () => {
     }
   }, [brandProducts]);
 
+  
+
   return (
     <div>
       <CoverImage img={coverImage} title={brandProducts[0]?.brand_name} />
-      <div className="grid mt-5 grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid my-12 grid-cols-1 md:grid-cols-2 gap-6">
         {brandProducts && brandProducts.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
