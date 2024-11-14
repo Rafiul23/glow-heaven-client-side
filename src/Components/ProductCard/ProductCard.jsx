@@ -12,9 +12,9 @@ const ProductCard = ({ product }) => {
   } = product;
 
   return (
-    <div className=" border-pink-600 border-b-2 border-0 rounded-lg bg-white shadow-lg hover:shadow-[0px_4px_15px_0px_rgba(192,88,243,0.4)] transition-shadow duration-300 flex gap-4 overflow-hidden">
-      <div className="flex-1 border-0 border-l-2 border-purple-600">
-        <img src={productImg} className="w-full h-[300px] object-cover rounded-l-lg" alt={productName} />
+    <div className="border-pink-600 border-b-2 border-0 rounded-b-lg bg-white shadow-lg hover:shadow-[0px_4px_15px_0px_rgba(192,88,243,0.4)] transition-shadow duration-300 flex gap-4 overflow-hidden">
+      <div className="flex-1 flex justify-center items-center border-0 border-l-2 border-purple-600 rounded-l-lg">
+        <img src={productImg} className="w-[300px] h-[300px]" alt={productName} />
       </div>
       <div className="flex-1 p-4 flex flex-col justify-between">
         <div>

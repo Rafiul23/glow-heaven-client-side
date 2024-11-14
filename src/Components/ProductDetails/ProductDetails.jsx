@@ -51,22 +51,37 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="card md:flex flex-col card-side bg-base-100 p-4 shadow-xl">
-      <div className="flex-1">
-        <figure>
-          <img src={productImg} />
-        </figure>
+    <div className="bg-white shadow-lg hover:shadow-[0px_4px_15px_0px_rgba(192,88,243,0.4)] transition-shadow duration-300 flex gap-4 overflow-hidden">
+      <div className="flex-1 flex justify-center items-center">
+      <figure><img src={productImg} className="w-[300px] h-[300px]" alt={productName} /></figure>
       </div>
-      <div className="flex-1 card-body">
-        <h2 className="card-title">{productName}</h2>
-        <p>{brand_name}</p>
-        <p>{productType}</p>
-        <p>{description}</p>
-        <p>Rating: {rating} / 5</p>
-        <p>Price: ${price}</p>
-        <div className="card-actions justify-end">
-          <button onClick={handleAddCart} className="btn bg-[#ff81c0] w-full">
-            Add to cart
+      <div className="flex-1 p-4 flex flex-col justify-between">
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            {productName}
+          </h2>
+          <p className="text-gray-600 mb-1">
+            Brand: <span className="font-medium">{brand_name}</span>
+          </p>
+          <p className="text-gray-600 mb-1">
+            Type: <span className="font-medium">{productType}</span>
+          </p>
+          <p className="text-gray-600 mb-1">
+            Price: <span className="text-green-600 font-bold">${price}</span>
+          </p>
+          <p className="text-gray-600 mb-1">
+            Product's Details:{" "}
+            <span className="font-medium">{description}</span>
+          </p>
+          <p className="text-gray-600">
+            Rating:{" "}
+            <span className="font-medium text-yellow-600">{rating} / 5</span>
+          </p>
+          <button
+            onClick={handleAddCart}
+            className="btn w-full py-2 rounded bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition-colors duration-300"
+          >
+            View Details
           </button>
         </div>
       </div>
