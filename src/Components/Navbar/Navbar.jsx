@@ -35,7 +35,7 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to="/addProduct"
+          to="/dashboard"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -44,7 +44,7 @@ const Navbar = () => {
               : ""
           }
         >
-          Add Product
+          Dashboard
         </NavLink>
       </li>
 
@@ -124,14 +124,14 @@ const Navbar = () => {
             {user ? (
               <Link
                 onClick={handleLogOut}
-                className="btn bg-[#800] text-white p-2 rounded-lg mr-4"
+                className="btn bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg ml-4"
               >
                 LogOut
               </Link>
             ) : (
               <Link
                 to="/login"
-                className="btn bg-[#800] text-white p-2 rounded-lg mr-4"
+                className="btn bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg ml-4"
               >
                 Login
               </Link>
