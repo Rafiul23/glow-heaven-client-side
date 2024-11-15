@@ -1,7 +1,6 @@
-import offer_1 from '../../assets/offer_1.jpg';
-import offer_2 from '../../assets/offer_2.jpg';
-import offer_3 from '../../assets/offer_3.jpg';
 import { motion } from 'framer-motion';
+import SectionTitle from '../SectionTitle/SectionTitle';
+import './offers.css';
 
 const Offers = () => {
     const containerVariants = {
@@ -15,21 +14,16 @@ const Offers = () => {
        initial="hidden"
        animate="visible"
        >
-         <div className="my-20 p-5">
-            <h2 className='text-center text-violet-600 font-bold my-4 text-3xl'>Discount offers are going on</h2>
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <div className="rounded-lg w-full h-[300px] bg-green-500">
-                <h2 className="text-center font-bold text-3xl mt-4">25% discount on Dior products</h2>
-                <img src={offer_1} className='rounded-full mx-auto w-[150px] h-[150px] mt-4 my-auto' alt="" />
-            </div>
-            <div className="rounded-lg w-full h-[300px] bg-amber-500">
-                <h2 className="text-center font-bold text-3xl mt-4">15% discount on Chanel products</h2>
-                <img src={offer_2} className='rounded-full mx-auto w-[150px] h-[150px] mt-4 my-auto' alt="" />
-            </div>
-            <div className="rounded-lg w-full h-[300px] bg-violet-400">
-                <h2 className="text-center font-bold text-3xl mt-4">20% discount on M.A.C products</h2>
-                <img src={offer_3} className='rounded-full mx-auto w-[150px] h-[150px] mt-4 my-auto' alt="" />
-            </div>
+        <SectionTitle
+        subHeading={'Check our discount offers'}
+        heading={'Read carefully to get discount'}
+        ></SectionTitle>
+        <div className='offer max-w-screen-xl h-[572px] bg-fixed flex flex-col justify-center items-center my-12'>
+            <div className='flex flex-col justify-center items-center py-20 px-12 bg-white w-[1096px] h-[330px]'>
+                <h2 className="text-3xl py-6">We are offering you 20% discount.</h2>
+                <p className='p-6 text-center'>
+                Get an **exclusive 20% discount** on purchases over <span className='font-bold text-purple-600'>$1000</span>! Simply use the promo code <span className='font-bold text-pink-600'>MAKEUP1000</span> at checkout to claim your savings.
+                </p>
             </div>
         </div>
        </motion.div>

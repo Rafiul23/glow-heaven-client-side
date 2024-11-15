@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaCartShopping } from "react-icons/fa6";
 
 const ProductDetails = () => {
   const product = useLoaderData();
@@ -53,7 +54,13 @@ const ProductDetails = () => {
   return (
     <div className="bg-white shadow-lg hover:shadow-[0px_4px_15px_0px_rgba(192,88,243,0.4)] transition-shadow duration-300 flex gap-4 overflow-hidden">
       <div className="flex-1 flex justify-center items-center">
-      <figure><img src={productImg} className="w-[300px] h-[300px]" alt={productName} /></figure>
+        <figure>
+          <img
+            src={productImg}
+            className="w-[300px] h-[300px]"
+            alt={productName}
+          />
+        </figure>
       </div>
       <div className="flex-1 p-4 flex flex-col justify-between">
         <div className="space-y-4">
@@ -81,7 +88,7 @@ const ProductDetails = () => {
             onClick={handleAddCart}
             className="btn w-full py-2 rounded bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition-colors duration-300"
           >
-            View Details
+            ADD TO CART <FaCartShopping className="text-xl"></FaCartShopping>
           </button>
         </div>
       </div>
