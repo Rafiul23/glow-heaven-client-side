@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaCartShopping } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCart from "../../hooks/useCart";
 
 const ProductDetails = () => {
   const product = useLoaderData();
@@ -22,7 +23,7 @@ const ProductDetails = () => {
   const { user } = useAuth();
   const email = user?.email;
   const axiosSecure = useAxiosSecure();
-
+  const {refetch} = useCart();
 
   const handleAddToCart = () => {
     const cartInfo = {
@@ -38,6 +39,7 @@ const ProductDetails = () => {
     axiosSecure.post("/carts", cartInfo)
       .then((res) => {
         if(res.data.insertedId) {
+          refetch();
           toast.success("Added to Cart successfully");
         }
       });

@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 
@@ -18,6 +19,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
 
   const signInWithGoogle = () => {
     setLoading(true);
@@ -42,7 +44,29 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
+      const email = currentUser?.email || user?.email;
+      const userInfo = { email };
+      if (currentUser) {
+        axiosPublic
+          .post("/jwt", userInfo, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            if (res.data.success) {
+              setLoading(false);
+            }
+          });
+      } else {
+        axiosPublic
+          .post("/logOut", userInfo, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            if (res.data.success) {
+              setLoading(false);
+            }
+          });
+      }
     });
 
     return () => {

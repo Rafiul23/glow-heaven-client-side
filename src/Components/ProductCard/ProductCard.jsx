@@ -1,3 +1,4 @@
+import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
@@ -38,7 +39,7 @@ const ProductCard = ({ product }) => {
         <div className="mt-4">
           <Link to={`/productDetails/${_id}`}>
             <button className="btn w-full py-2 rounded bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition-colors duration-300">
-              View Details
+              View Details <FaArrowRight></FaArrowRight>
             </button>
           </Link>
         </div>

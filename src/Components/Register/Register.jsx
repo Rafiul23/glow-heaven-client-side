@@ -7,6 +7,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import registerImage from "../../assets/register.png";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_ImageBB_API_key;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -51,6 +52,30 @@ const Register = () => {
            }
      }).then(res =>{
       if(res.data.success){
+        axiosPublic.post('/users', {
+          email,
+          name,
+          photoURL: res.data.data.display_url,
+          role: 'user'
+        }).then(res =>{
+          if(res.data.insertedId){
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "New user has been created",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: `${res.data.message}`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        })
         updateProfile(loggedInUser, {
           displayName: name,
           photoURL: res.data.data.display_url,

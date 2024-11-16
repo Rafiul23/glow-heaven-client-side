@@ -1,8 +1,8 @@
-import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import { motion } from "framer-motion";
 import Sticky from "react-stickynode";
+import useCart from "../../hooks/useCart";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const containerVariants = {
@@ -10,7 +10,8 @@ const Navbar = () => {
     visible: { opacity: 1, transition: { duration: 1 } },
   };
 
-  const { user, logOut, name, photo } = useContext(AuthContext);
+  const {cart} = useCart();
+  const { user, logOut, name, photo } = useAuth();
 
   const handleLogOut = () => {
     logOut().then().catch();
@@ -59,8 +60,8 @@ const Navbar = () => {
               : ""
           }
         >
-          My Cart
-          <div className="badge badge-secondary ml-2">+0</div>
+          Cart
+          <div className="badge badge-secondary ml-2">+{cart?.length}</div>
         </NavLink>
       </li>
 
@@ -124,14 +125,14 @@ const Navbar = () => {
             {user ? (
               <Link
                 onClick={handleLogOut}
-                className="btn bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg ml-4"
+                className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg ml-4"
               >
                 LogOut
               </Link>
             ) : (
               <Link
                 to="/login"
-                className="btn bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg ml-4"
+                className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg ml-4"
               >
                 Login
               </Link>
