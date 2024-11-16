@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCartShopping } from "react-icons/fa6";
+import useAuth from "../../hooks/useAuth";
 
 const ProductDetails = () => {
   const product = useLoaderData();
@@ -18,7 +17,7 @@ const ProductDetails = () => {
     rating,
   } = product;
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const email = user?.email;
 
   const handleAddCart = () => {

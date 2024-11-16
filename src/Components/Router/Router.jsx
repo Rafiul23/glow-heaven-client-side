@@ -67,7 +67,7 @@ const router = createBrowserRouter([
           ),
           loader: ({ params }) =>
             fetch(
-              `https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/product/${params.id}`
+              `http://localhost:5000/product/${params.id}`
             ),
         },
         {
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
           element: <BrandDetails></BrandDetails>,
           loader: ({ params }) =>
             fetch(
-              `https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/products/${params.brand_name}`
+              `http://localhost:5000/products?brand_name=${params.brand_name}`
             ),
         },
       ],
