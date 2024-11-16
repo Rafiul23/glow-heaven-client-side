@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCartShopping } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const ProductDetails = () => {
   const product = useLoaderData();
@@ -15,12 +16,15 @@ const ProductDetails = () => {
     price,
     description,
     rating,
+    _id
   } = product;
 
   const { user } = useAuth();
   const email = user?.email;
+  const axiosSecure = useAxiosSecure();
 
-  const handleAddCart = () => {
+
+  const handleAddToCart = () => {
     const cartInfo = {
       email,
       productImg,
@@ -28,23 +32,12 @@ const ProductDetails = () => {
       brand_name,
       productType,
       price,
-      description,
-      rating,
+      productId: _id
     };
 
-    fetch(
-      "https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/carts",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(cartInfo),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
+    axiosSecure.post("/carts", cartInfo)
+      .then((res) => {
+        if(res.data.insertedId) {
           toast.success("Added to Cart successfully");
         }
       });
@@ -84,7 +77,7 @@ const ProductDetails = () => {
             <span className="font-medium text-yellow-600">{rating} / 5</span>
           </p>
           <button
-            onClick={handleAddCart}
+            onClick={handleAddToCart}
             className="btn w-full py-2 rounded bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition-colors duration-300"
           >
             ADD TO CART <FaCartShopping className="text-xl"></FaCartShopping>
