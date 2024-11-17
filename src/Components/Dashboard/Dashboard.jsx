@@ -7,7 +7,7 @@ import useCart from "../../hooks/useCart";
 
 const Dashboard = () => {
 
-    const isAdmin = false;
+    const isAdmin = true;
     const {cart} = useCart();
 
     return (
@@ -23,15 +23,15 @@ const Dashboard = () => {
             </NavLink>
           </li>
             <li>
-            <NavLink to="/dashboard/addItems">
+            <NavLink to="/dashboard/addProduct">
            <IoIosAddCircleOutline />
-            Add Items
+            Add Product
             </NavLink>
           </li>
             <li>
-            <NavLink to="/dashboard/manageItems">
+            <NavLink to="/dashboard/manageProducts">
            <FaList></FaList>
-            Manage Items
+            Manage Products
             </NavLink>
           </li>
             <li>

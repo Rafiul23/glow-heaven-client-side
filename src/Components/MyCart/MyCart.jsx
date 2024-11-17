@@ -3,6 +3,7 @@ import useCart from "../../hooks/useCart";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const MyCart = () => {
   const { cart, refetch } = useCart();
@@ -38,12 +39,15 @@ const MyCart = () => {
 
   return (
     <>
-    <h2 className="text-4xl text-center my-2 font-bold">My Cart</h2>
-      <div className="my-4 flex justify-between p-4 bg-base-200">
-        <h2 className="text-4xl text-center font-medium">
+      <SectionTitle
+      subHeading={'Check your cart items'}
+      heading={'My Cart'}
+      ></SectionTitle>
+      <div className="my-2 flex justify-between p-4 bg-base-200">
+        <h2 className="text-2xl text-center font-medium">
           Total Items: {cart?.length}
         </h2>
-        <h2 className="text-4xl text-center font-medium">
+        <h2 className="text-2xl text-center font-medium">
           Total Price: ${totalPrice}{" "}
         </h2>
        {
