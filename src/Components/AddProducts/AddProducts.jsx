@@ -1,10 +1,14 @@
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { FaPlus } from "react-icons/fa6";
+import Swal from "sweetalert2";
+const image_hosting_key = import.meta.env.VITE_ImageBB_API_key;
+const image_hosting_api = 
+`https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
 
 const AddProducts = () => {
 
@@ -12,55 +16,40 @@ const AddProducts = () => {
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
 
-    const onSubmit = async(data)=>{
-        
-    }
-  const handleAddProduct = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const productImg = form.productImg.value;
-    const productName = form.name.value;
-    const brand_name = form.brand_name.value;
-    const productType = form.type.value;
-    const price = form.price.value;
-    const description = form.description.value;
-    const rating = form.rating.value;
-
-    form.productImg.value = "";
-    form.name.value = "";
-    form.brand_name.value = "";
-    form.type.value = "";
-    form.price.value = "";
-    form.description.value = "";
-    form.rating.value = "";
-
-    const newProduct = {
-      productImg,
-      productName,
-      brand_name,
-      productType,
-      price,
-      description,
-      rating,
-    };
-
-    fetch(
-      "https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/products",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          toast.success("Product added successfully");
+    const onSubmit = async(data) => {
+        console.log(data);
+        const imageFile = {image: data.image[0]};
+        const imageRes = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+       
+        if(imageRes.data.success){
+            const productItem = {
+                productName: data.name,
+                brand_name: data.brand,
+                price: parseFloat(data.price),
+                rating: parseFloat(data.rating),
+                description: data.description,
+                productType: data.productType,
+                productImg: imageRes.data.data.display_url
+            };
+    
+            const productRes = await axiosSecure.post('/product', productItem);
+            if(productRes.data.insertedId){
+                reset();
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: `${data.name} has been added`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
         }
-      });
-  };
+      };
+ 
 
   return (
     <>
@@ -158,8 +147,22 @@ const AddProducts = () => {
               <span className="label-text font-semibold">Product Image*</span>
             </div>
           </label>
-          <input type="file" className="file-input file-input-bordered w-full max-w-xs" required />
+          <input type="file" {...register('image')} className="file-input file-input-bordered w-full max-w-xs" required />
           </div>
+          <div className="md:w-1/2 w-full mb-5">
+            <label className="form-control w-3/4 ">
+            <div className="label">
+              <span className="label-text font-semibold">Type of product*</span>
+            </div>
+          </label>
+          <input
+              type="text"
+              {...register("productType")}
+              placeholder="Type of product"
+              required
+              className="input input-bordered w-full"
+            />
+            </div>
           <button className="btn bg-[#ffdbac] text-[#800]" >
            <FaPlus></FaPlus> Add Product 
           </button>
