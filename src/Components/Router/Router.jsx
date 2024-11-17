@@ -10,6 +10,7 @@ import ProductDetails from './../ProductDetails/ProductDetails';
 import UpdateProducts from './../UpdateProduct/UpdateProduct';
 import BrandDetails from './../BrandDetails/BrandDetails';
 import PrivateRoute from './../PrivateRoute/PrivateRoute';
+import Dashboard from "../Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -22,22 +23,7 @@ const router = createBrowserRouter([
           path: "/",
           element: <Home></Home>
         },
-        {
-          path: "/addProduct",
-          element: (
-            <PrivateRoute>
-              <AddProducts></AddProducts>
-            </PrivateRoute>
-          ),
-        },
-        {
-          path: "/myCart",
-          element: (
-            <PrivateRoute>
-              <MyCart></MyCart>
-            </PrivateRoute>
-          ),
-        },
+        
         {
           path: "/login",
           element: <Login></Login>,
@@ -58,8 +44,29 @@ const router = createBrowserRouter([
               `https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/product/${params.id}`
             ),
         },
+        
         {
-          path: "/update/:id",
+          path: "/details/:brand_name",
+          element: <BrandDetails></BrandDetails>,
+          loader: ({ params }) =>
+            fetch(
+              `http://localhost:5000/products?brand_name=${params.brand_name}`
+            ),
+        },
+      ],
+    }, 
+    {
+      path: '/dashboard',
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children: [
+        {
+          path: 'cart',
+          element: <MyCart></MyCart>
+        },
+
+        // admin
+        {
+          path: "update/:id",
           element: (
             <PrivateRoute>
               <UpdateProducts></UpdateProducts>
@@ -71,15 +78,15 @@ const router = createBrowserRouter([
             ),
         },
         {
-          path: "/details/:brand_name",
-          element: <BrandDetails></BrandDetails>,
-          loader: ({ params }) =>
-            fetch(
-              `http://localhost:5000/products?brand_name=${params.brand_name}`
-            ),
+          path: "addProduct",
+          element: (
+            <PrivateRoute>
+              <AddProducts></AddProducts>
+            </PrivateRoute>
+          ),
         },
-      ],
-    },
+      ]
+    }
   ]);
 
 export default router;  

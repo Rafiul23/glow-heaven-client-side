@@ -51,7 +51,7 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to="/myCart"
+          to="/dashboard/cart"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -79,6 +79,7 @@ const Navbar = () => {
           Register
         </NavLink>
       </li>
+      
     </>
   );
 
