@@ -11,6 +11,7 @@ import UpdateProducts from './../UpdateProduct/UpdateProduct';
 import BrandDetails from './../BrandDetails/BrandDetails';
 import PrivateRoute from './../PrivateRoute/PrivateRoute';
 import Dashboard from "../Dashboard/Dashboard";
+import ManageProducts from "../ManageProducts/ManageProducts";
 
 
 const router = createBrowserRouter([
@@ -63,7 +64,10 @@ const router = createBrowserRouter([
           path: 'cart',
           element: <MyCart></MyCart>
         },
-
+        {
+          path: 'manageProducts',
+          element: <ManageProducts></ManageProducts>
+        },
         // admin
         {
           path: "update/:id",
