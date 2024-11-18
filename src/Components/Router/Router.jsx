@@ -12,6 +12,7 @@ import BrandDetails from './../BrandDetails/BrandDetails';
 import PrivateRoute from './../PrivateRoute/PrivateRoute';
 import Dashboard from "../Dashboard/Dashboard";
 import ManageProducts from "../ManageProducts/ManageProducts";
+import AllUsers from "../ManageUsers/ManageUsers";
 
 
 const router = createBrowserRouter([
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
             </PrivateRoute>
           ),
         },
+        {
+          path: 'manageUsers',
+          element: <AllUsers></AllUsers>
+        }
       ]
     }
   ]);
