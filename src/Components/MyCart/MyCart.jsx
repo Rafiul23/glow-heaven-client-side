@@ -4,11 +4,16 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { useEffect, useState } from "react";
 
 const MyCart = () => {
   const { cart, refetch } = useCart();
   const axiosSecure = useAxiosSecure();
-  const totalPrice = cart?.reduce((sum, item)=> sum = sum + parseFloat(item.price), 0 );
+ 
+  
+    const totalPrice = cart?.reduce((sum, item)=> sum = sum + parseFloat(item.price), 0 );
+    
+ 
 
   const handleDeleteItem = (_id)=>{
     Swal.fire({
@@ -52,7 +57,7 @@ const MyCart = () => {
         </h2>
        {
          cart?.length ?  <Link to='/dashboard/order'>
-         <button className="btn bg-[#ffdbac] text-[#800]">Order</button>
+         <button className="btn bg-[#ffdbac] text-[#800]">Proceed to Order</button>
          </Link> :
         <button disabled className="btn bg-[#ffdbac] text-[#800]">Order</button>
         
@@ -66,6 +71,7 @@ const MyCart = () => {
               <th>
                 SL No.
               </th>
+              <th>Product Image</th>
               <th>Name of Item</th>
               <th>Customer Eamil</th>
               <th>Price</th>
@@ -83,11 +89,10 @@ const MyCart = () => {
                         <img src={item.productImg} alt="product" />
                       </div>
                     </div>
-                    <div>
-                      <div className="font-bold">{item.productName}</div>
-                    </div>
+                    
                   </div>
                 </td>
+                <td className="font-bold">{item.productName}</td>
                 <td>{item.email}</td>
                 <td>$ {item.price}</td>
                 <td>
