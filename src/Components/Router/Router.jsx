@@ -70,7 +70,7 @@ const router = createBrowserRouter([
         },
         // admin
         {
-          path: "update/:id",
+          path: "updateProduct/:id",
           element: (
             <PrivateRoute>
               <UpdateProducts></UpdateProducts>

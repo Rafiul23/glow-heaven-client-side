@@ -3,6 +3,7 @@ import { FaTrashCan } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const ManageProducts = () => {
   const axiosSecure = useAxiosSecure();
@@ -51,6 +52,7 @@ const ManageProducts = () => {
           <thead className="bg-[#ffdbac] text-[#800]">
             <tr>
               <th>SL No.</th>
+              <th>Image</th>
               <th>Name of Item</th>
               <th>Price</th>
               <th>Update Product</th>
@@ -68,15 +70,15 @@ const ManageProducts = () => {
                         <img src={item.productImg} alt="product" />
                       </div>
                     </div>
-                    <div>
-                      <div className="font-bold">{item.productName}</div>
-                    </div>
+                    
                   </div>
                 </td>
-
+                <td>{item.productName}</td>
                 <td>$ {item.price}</td>
                 <td>
+                    <Link to={`/dashboard/updateProduct/${item?._id}`}>
                     <button className="btn bg-[#ffdbac] text-[#800]">Update</button>
+                    </Link>
                 </td>
                 <td>
                   <button
