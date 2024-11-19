@@ -17,7 +17,7 @@ const AddProducts = () => {
     const axiosSecure = useAxiosSecure();
 
     const onSubmit = async(data) => {
-        console.log(data);
+        // console.log(data);
         const imageFile = {image: data.image[0]};
         const imageRes = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {

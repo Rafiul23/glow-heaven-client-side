@@ -1,36 +1,49 @@
-import { FaFirstOrder } from "react-icons/fa6";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
+import { GiShoppingBag } from "react-icons/gi";
+import useAuth from './../../hooks/useAuth';
+import useCart from './../../hooks/useCart';
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Order = () => {
     const { register, handleSubmit, reset } = useForm();
     const axiosSecure = useAxiosSecure();
-
+    const {user} = useAuth();
+    const navigate = useNavigate();
+    const {cart, refetch} = useCart();
+    const price = cart?.reduce((sum, item)=> parseFloat(item.price) + sum, 0);
+   
     const onSubmit = async(data) => {
-        console.log(data);
-            const productItem = {
-                productName: data.name,
-                brand_name: data.brand,
-                price: parseFloat(data.price),
-                rating: parseFloat(data.rating),
-                description: data.description,
-                productType: data.productType,
-                productImg: imageRes.data.data.display_url
-            };
-    
-            const productRes = await axiosSecure.post('/product', productItem);
-            if(productRes.data.insertedId){
-                reset();
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: `${data.name} has been added`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-        
+      // console.log(data);
+        const orderInfo = {
+          name: data.name,
+          email: data.email,
+          house: data.house,
+          road: data.road,
+          block: data.block,
+          area: data.area,
+          paymentMethod: data.paymentMethod,
+          contact: data.contact,
+          cartId: cart?.map(item => item._id),
+          productItemId: cart?.map(item => item.productId),
+          status: 'pending',
+          price
+        };    
+
+        const orderRes = await axiosSecure.post('/orders', orderInfo);
+        if(orderRes?.data?.orderResult?.insertedId && orderRes?.data?.deleteResult?.deletedCount > 0){
+          refetch();
+          navigate('/dashboard/myOrder');
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your order is placed successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
       };
   return (
     <div>
@@ -53,6 +66,7 @@ const Order = () => {
               <input
                 type="text"
                 {...register("name")}
+                defaultValue={user?.displayName}
                 placeholder="Your Name"
                 required
                 className="input input-bordered w-full"
@@ -68,6 +82,7 @@ const Order = () => {
               <input
                 type="email"
                 {...register("email")}
+                defaultValue={user?.email}
                 placeholder="Your Email"
                 required
                 className="input input-bordered w-full"
@@ -144,7 +159,9 @@ const Order = () => {
           </div>
           </div>
 
-          <div className="my-4">
+          <div className="flex gap-4 my-4">
+            {/* payment system */}
+          <div className="w-full md:w-1/2">
           <label className="form-control w-3/4 ">
             <div className="label">
               <span className="label-text font-semibold">Select Payment Method</span>
@@ -161,11 +178,24 @@ const Order = () => {
             
           </select>
           </div>
-          <div className="md:w-1/2 w-full mb-5">
-            
+          <div className="w-full md:w-1/2">
+          {/* contact no. */}
+            <label className="form-control w-3/4 ">
+                <div className="label">
+                  <span className="label-text font-semibold">Contact No*</span>
+                </div>
+              </label>
+              <input
+                type="number"
+                {...register("contact")}
+                placeholder="Your Contact No"
+                required
+                className="input input-bordered w-full"
+              />
+          </div>
           </div>
           <button className="btn bg-[#ffdbac] text-[#800]">
-            <FaFirstOrder></FaFirstOrder> Place Order
+            <GiShoppingBag></GiShoppingBag> Place Order
           </button>
         </form>
       </div>

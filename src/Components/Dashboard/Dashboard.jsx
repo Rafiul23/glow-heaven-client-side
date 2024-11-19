@@ -55,9 +55,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/delivery">
+            <NavLink to="/dashboard/myOrder">
             <FaCar></FaCar>
-            Delivery
+            My Order
             </NavLink>
           </li>
           <li>
