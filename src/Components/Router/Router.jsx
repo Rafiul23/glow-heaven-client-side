@@ -14,6 +14,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import AllUsers from "../ManageUsers/ManageUsers";
 import Order from "../Order/Order";
+import Payment from "../Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
           path: 'order',
           element: <Order></Order>
         },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
+        },
         // admin
         {
           path: 'manageProducts',
@@ -98,7 +103,8 @@ const router = createBrowserRouter([
         {
           path: 'manageUsers',
           element: <AllUsers></AllUsers>
-        }
+        },
+        
       ]
     }
   ]);
