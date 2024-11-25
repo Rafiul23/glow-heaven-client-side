@@ -15,6 +15,7 @@ import ManageProducts from "../ManageProducts/ManageProducts";
 import AllUsers from "../ManageUsers/ManageUsers";
 import Order from "../Order/Order";
 import Payment from "../Payment/Payment";
+import PaymentHistory from "../PaymentHistory/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         {
           path: 'payment',
           element: <Payment></Payment>
+        },
+        {
+          path: 'paymentHistory',
+          element: <PaymentHistory></PaymentHistory>
         },
         // admin
         {

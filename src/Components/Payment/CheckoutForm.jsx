@@ -15,7 +15,7 @@ const CheckoutForm = () => {
   const {user} = useAuth();
   const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
-    const {cart} = useCart();
+    const {cart, refetch} = useCart();
     const price = cart?.reduce((total, item)=> total + parseFloat(item.price), 0);
 
 useEffect(()=>{
@@ -72,7 +72,7 @@ axiosSecure.post('/create-payment-intent', {price} )
         console.log('error');
     } else {
         if(paymentIntent.status === 'succeeded'){
-            // console.log('transaction id', paymentIntent.id);
+            console.log('transaction id', paymentIntent.id);
             setTransactionId(paymentIntent.id);
     
             const payment = {
@@ -85,7 +85,7 @@ axiosSecure.post('/create-payment-intent', {price} )
               status: 'pending'
             };
             const res = await axiosSecure.post('/payments',payment);
-            // console.log(res.data);
+            console.log(res.data);
             if(res?.data?.paymentResult?.insertedId && res?.data?.deleteResult?.deletedCount > 0){
               refetch();
               navigate('/dashboard/paymentHistory');
