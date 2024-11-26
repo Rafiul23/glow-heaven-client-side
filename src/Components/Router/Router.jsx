@@ -16,6 +16,7 @@ import AllUsers from "../ManageUsers/ManageUsers";
 import Payment from "../Payment/Payment";
 import PaymentHistory from "../PaymentHistory/PaymentHistory";
 import MyOrder from "../MyOrder/MyOrder";
+import ManageOrder from "../ManageOrder/ManageOrder";
 
 
 const router = createBrowserRouter([
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
           path: 'manageUsers',
           element: <AllUsers></AllUsers>
         },
+        {
+          path: 'manageOrders',
+          element: <ManageOrder></ManageOrder>
+        }
         
       ]
     }

@@ -31,7 +31,7 @@ const MyOrder = () => {
             <p className="text-xl">Delivery Status: {order?.status}</p>
             <p className="text-xl">Transaction ID: {order?.transactionId}</p>
 
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 my-4 gap-4">
               {
                 order?.products?.map(product=> <OrderedCard
                 product={product}

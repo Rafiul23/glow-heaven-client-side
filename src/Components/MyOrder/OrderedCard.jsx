@@ -34,7 +34,7 @@ const OrderedCard = ({product}) => {
         </div>
         <div className="my-auto mx-auto">
           <Link to={`/productDetails/${_id}`}>
-            <button className="btn py-2 rounded bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition-colors duration-300">
+            <button className="btn rounded-xl py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition-colors duration-300">
               View Details <FaArrowRight></FaArrowRight>
             </button>
           </Link>

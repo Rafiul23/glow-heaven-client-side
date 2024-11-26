@@ -7,7 +7,7 @@ import useCart from "../../hooks/useCart";
 
 const Dashboard = () => {
 
-    const isAdmin = false;
+    const isAdmin = true;
     const {cart} = useCart();
 
     return (
