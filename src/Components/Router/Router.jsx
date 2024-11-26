@@ -13,9 +13,9 @@ import PrivateRoute from './../PrivateRoute/PrivateRoute';
 import Dashboard from "../Dashboard/Dashboard";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import AllUsers from "../ManageUsers/ManageUsers";
-import Order from "../Order/Order";
 import Payment from "../Payment/Payment";
 import PaymentHistory from "../PaymentHistory/PaymentHistory";
+import MyOrder from "../MyOrder/MyOrder";
 
 
 const router = createBrowserRouter([
@@ -69,8 +69,8 @@ const router = createBrowserRouter([
           element: <MyCart></MyCart>
         },
         {
-          path: 'order',
-          element: <Order></Order>
+          path: 'myOrder',
+          element: <MyOrder></MyOrder>
         },
         {
           path: 'payment',

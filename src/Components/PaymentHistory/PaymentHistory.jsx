@@ -39,13 +39,13 @@ const PaymentHistory = () => {
           </thead>
           <tbody>
             {myPayments?.map((order, index) => (
-              <tr key={order._id}>
+              <tr key={order?._id}>
                 <th>{index + 1}</th>
-                <td>{order.email}</td>
-                <td>$ {order.price}</td>
-                <td>{order.status}</td>
-                <td>{order.date}</td>
-                <td>{order.transactionId}</td>
+                <td>{order?.email}</td>
+                <td>$ {order?.price}</td>
+                <td>{order?.status}</td>
+                <td>{order?.date}</td>
+                <td>{order?.transactionId}</td>
               </tr>
             ))}
           </tbody>
