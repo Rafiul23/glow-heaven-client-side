@@ -3,8 +3,8 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const AddReviews = () => {
@@ -13,7 +13,7 @@ const AddReviews = () => {
     const name = user.displayName;
     const email = user.email;
     const image = user.photoURL;
-    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
 
     const handleAddReview = e =>{
         e.preventDefault();
@@ -25,7 +25,7 @@ const AddReviews = () => {
             rating,
             details
         };
-        axiosSecure.post('/reviews', reviewData)
+        axiosPublic.post('/reviews', reviewData)
         .then(res =>{
             if(res.data.insertedId){
                 e.target.details.value = '';
@@ -44,7 +44,7 @@ const AddReviews = () => {
         <div>
             <SectionTitle
             subHeading={'Are you satisfied?'}
-            heading={'add reviws'}
+            heading={'give us your reviw'}
             ></SectionTitle>
             <form className="space-y-4" onSubmit={handleAddReview}>
             <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />

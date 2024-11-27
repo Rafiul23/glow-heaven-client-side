@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import Offers from "../Offers/Offers";
 import Speciality from "../Speciality/Speciality";
 import AllBrands from "../AllBrands/AllBrands";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -15,7 +16,7 @@ const Home = () => {
       <AllBrands></AllBrands>
       <Offers></Offers>
       <Speciality></Speciality>
-      
+      <Reviews></Reviews>
     </div>
   );
 };

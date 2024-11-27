@@ -1,0 +1,73 @@
+[
+    {
+      "email": "emma.brown@example.com",
+      "name": "Emma Brown",
+      "image": "https://i.ibb.co.com/0KK9H2h/woman1.webp",
+      "rating": 4.7,
+      "details": "I absolutely love the range of products available! The shade-matching tool made it easy to find my perfect foundation."
+    },
+    {
+      "email": "sophia.miller@example.com",
+      "name": "Sophia Miller",
+      "image": "https://i.ibb.co.com/L97tqvG/woman2.webp",
+      "rating": 4.9,
+      "details": "The tutorials and beauty tips on the website are amazing! They’ve helped me improve my makeup skills so much."
+    },
+    {
+      "email": "olivia.taylor@example.com",
+      "name": "Olivia Taylor",
+      "image": "https://i.ibb.co.com/5WZsBCX/woman3.jpg",
+      "rating": 4.8,
+      "details": "I love how easy it is to shop here. The product filters and virtual try-on features are incredibly helpful!"
+    },
+    {
+      "email": "mia.anderson@example.com",
+      "name": "Mia Anderson",
+      "image": "https://i.ibb.co.com/vwRNv6L/woman4.jpg",
+      "rating": 4.6,
+      "details": "The cruelty-free and vegan options are a huge plus for me. I’ve already recommended the site to my friends!"
+    },
+    {
+      "email": "julia.wilson@example.com",
+      "name": "Julia Wilson",
+      "image": "https://i.ibb.co.com/mG7S32S/woman5.jpg",
+      "rating": 4.5,
+      "details": "The product descriptions are so detailed, and I love the skincare recommendations. My skin has never felt better!"
+    },
+    {
+      "email": "isabella.moore@example.com",
+      "name": "Isabella Moore",
+      "image": "https://i.ibb.co.com/X3ZK5pH/woman6.jpg",
+      "rating": 4.3,
+      "details": "The seasonal discounts are amazing! I stocked up on my favorite lipstick shades without breaking the bank."
+    },
+    {
+      "email": "amelia.jones@example.com",
+      "name": "Amelia Jones",
+      "image": "https://i.ibb.co.com/5WZsBCX/woman3.jpg",
+      "rating": 4.9,
+      "details": "The delivery was so quick, and the packaging was adorable. It’s clear the team cares about every little detail!"
+    },
+    {
+      "email": "charlotte.evans@example.com",
+      "name": "Charlotte Evans",
+      "image": "https://i.ibb.co.com/L97tqvG/woman2.webp",
+      "rating": 4.8,
+      "details": "I’ve never seen such a wide variety of shades for every skin tone. This site is my new favorite!"
+    },
+    {
+      "email": "ava.martin@example.com",
+      "name": "Ava Martin",
+      "image": "https://i.ibb.co.com/5WZsBCX/woman3.jpg",
+      "rating": 4.7,
+      "details": "The website design is so sleek and easy to use. I had no trouble finding exactly what I needed!"
+    },
+    {
+      "email": "harper.taylor@example.com",
+      "name": "Harper Taylor",
+      "image": "https://i.ibb.co.com/X3ZK5pH/woman6.jpg",
+      "rating": 4.4,
+      "details": "The ingredient transparency and sustainability efforts really stood out to me. Shopping here feels like a responsible choice!"
+    }
+  ]
+  
