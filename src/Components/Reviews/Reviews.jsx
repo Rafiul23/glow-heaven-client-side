@@ -28,13 +28,21 @@ const Reviews = () => {
             heading={"What our clients say"}
             ></SectionTitle>
             <Swiper
-        slidesPerView={2}
+        
         spaceBetween={30}
-        autoplay={true}
+        autoplay={{delay: 2000, disableOnInteraction: false}}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination, Autoplay]}
+        breakpoints={{
+            1024: {
+                slidesPerView: 2
+            },
+            768: {
+                slidesPerView: 1
+              },
+          }}
         className="mySwiper"
       >
         {
