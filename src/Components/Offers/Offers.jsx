@@ -19,12 +19,16 @@ const Offers = () => {
         heading={'Read carefully to get discount'}
         ></SectionTitle>
         <div className='offer max-w-screen-xl h-[572px] bg-fixed flex flex-col justify-center items-center my-12'>
-            <div className='flex flex-col justify-center items-center py-20 px-12 bg-white w-[1096px] h-[330px]'>
-                <h2 className="text-3xl py-6">We are offering you 20% discount.</h2>
-                <p className='p-6 text-center'>
-                Get an **exclusive 20% discount** on purchases over <span className='font-bold text-purple-600'>$1000</span>! Simply use the promo code <span className='font-bold text-pink-600'>MAKEUP1000</span> at checkout to claim your savings.
-                </p>
-            </div>
+        <div className="flex flex-col justify-center items-center py-10 px-6 bg-white w-full max-w-4xl rounded-lg shadow-md">
+    <h2 className="text-2xl md:text-3xl font-semibold py-4 text-center">
+      We are offering you 20% discount.
+    </h2>
+    <p className="text-center text-sm md:text-base p-4">
+      Get an <strong className="font-bold">exclusive 20% discount</strong> on purchases over{" "}
+      <span className="font-bold text-purple-600">$1000</span>! Simply use the promo code{" "}
+      <span className="font-bold text-pink-600">MAKEUP1000</span> at checkout to claim your savings.
+    </p>
+  </div>
         </div>
        </motion.div>
     );
