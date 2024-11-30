@@ -20,22 +20,22 @@ const AdminHome = () => {
            <h1 className="text-4xl font-bold">Hi {user?.displayName}! Welcome Back!</h1> 
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 my-5">
             <div className="h-[200px] w-full flex flex-col justify-center items-center text-white bg-purple-500">
-            <HiCurrencyDollar className="text-2xl" />
+            <HiCurrencyDollar className="text-4xl" />
             <h3 className="text-2xl font-bold">Revenue</h3>
             <p className="text-3xl">{stats?.revenue}</p>
             </div>
             <div className="h-[200px] w-full flex flex-col justify-center items-center text-white bg-green-500">
-            <FaCartShopping className="text-2xl"/>
+            <FaCartShopping className="text-4xl"/>
             <h3 className="text-2xl font-bold">Products</h3>
             <p className="text-3xl">{stats?.products}</p>
             </div>
             <div className="h-[200px] w-full flex flex-col justify-center items-center text-white bg-amber-500">
-            <FaUsers className="text-2xl" />
+            <FaUsers className="text-4xl" />
             <h3 className="text-2xl font-bold"> Users</h3>
             <p className="text-3xl">{stats?.users}</p>
             </div>
             <div className="h-[200px] w-full flex flex-col justify-center items-center text-white bg-pink-500">
-            <FaCarSide className="text-2xl" />
+            <FaCarSide className="text-4xl" />
             <h3 className="text-2xl font-bold">Orders</h3>
             <p className="text-3xl">{stats?.orders}</p>
             </div>
