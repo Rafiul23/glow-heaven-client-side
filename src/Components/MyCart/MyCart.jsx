@@ -32,6 +32,8 @@ const MyCart = () => {
               title: "Deleted!",
               text: "Your item has been deleted.",
               icon: "success",
+              showConfirmButton: false,
+              timer: 1500
             });
           }
         });

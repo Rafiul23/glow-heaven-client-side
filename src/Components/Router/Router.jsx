@@ -18,6 +18,8 @@ import PaymentHistory from "../PaymentHistory/PaymentHistory";
 import MyOrder from "../MyOrder/MyOrder";
 import ManageOrder from "../ManageOrder/ManageOrder";
 import AddReviews from "../AddReviews/AddReviews";
+import UserHome from "../UserHome/UserHome";
+import AdminHome from "../AdminHome/AdminHome";
 
 
 const router = createBrowserRouter([
@@ -86,7 +88,15 @@ const router = createBrowserRouter([
           path: 'review',
           element: <AddReviews></AddReviews>
         },
+        {
+          path: 'userHome',
+          element: <UserHome></UserHome>
+        },
         // admin
+        {
+          path: 'adminHome',
+          element: <AdminHome></AdminHome>
+        },
         {
           path: 'manageProducts',
           element: <ManageProducts></ManageProducts>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Sticky from "react-stickynode";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   const containerVariants = {
@@ -12,7 +13,7 @@ const Navbar = () => {
 
   const {cart} = useCart();
   const { user, logOut, name, photo } = useAuth();
-
+  const [isAdmin] = useAdmin();
   const handleLogOut = () => {
     logOut().then().catch();
   };
@@ -35,18 +36,31 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink
-          to="/dashboard"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
-              : ""
-          }
-        >
-          Dashboard
-        </NavLink>
+      {
+        isAdmin ? <NavLink
+        to="/dashboard/adminHome"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
+            : ""
+        }
+      >
+        Dashboard
+      </NavLink> : <NavLink
+        to="/dashboard/userHome"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
+            : ""
+        }
+      >
+        Dashboard
+      </NavLink>
+      }
       </li>
 
       <li>

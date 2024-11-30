@@ -3,11 +3,12 @@ import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaBook, FaCar, FaList, FaStar, FaUsers } from "react-icons/fa6";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
 
 
 const Dashboard = () => {
 
-    const isAdmin = false;
+    const [isAdmin] = useAdmin();
     const {cart} = useCart();
 
     return (

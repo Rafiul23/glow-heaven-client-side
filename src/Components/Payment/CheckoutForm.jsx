@@ -157,16 +157,17 @@ const CheckoutForm = () => {
               name="coupon"
               className="input input-bordered input-success mr-2 w-full max-w-xs"
             />
-            <button className="btn my-5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white">
+            <button className="btn bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white">
               Apply
             </button>
           </form>
-          <div className="modal-action justify-center mt-6">
+          <div className="modal-action relative justify-end -right-4 -top-[72px]">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <button className="btn bg-red-500 text-white hover:bg-red-600">Close</button>
             </form>
           </div>
+            
         </div>
       </dialog>
         </div>

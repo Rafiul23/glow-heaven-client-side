@@ -50,7 +50,7 @@ const ManageUsers = () => {
       confirmButtonText: "Yes, Confirm!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/users/${_id}`).then((res) => {
+        axiosSecure.patch(`/users/admin/${_id}`).then((res) => {
           if (res.data.modifiedCount > 0) {
             refetch();
             Swal.fire({
