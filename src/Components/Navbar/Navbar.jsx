@@ -4,6 +4,9 @@ import Sticky from "react-stickynode";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
 import useAdmin from "../../hooks/useAdmin";
+import { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
   const containerVariants = {
@@ -12,10 +15,16 @@ const Navbar = () => {
   };
 
   const {cart} = useCart();
-  const { user, logOut, name, photo } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
+  const { user, logOut } = useAuth();
   const [isAdmin] = useAdmin();
-  const handleLogOut = () => {
-    logOut().then().catch();
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      console.log("Logged out successfully!");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   };
 
   const links = (
@@ -37,7 +46,7 @@ const Navbar = () => {
 
       <li>
       {
-        isAdmin ? <NavLink
+        user && isAdmin && <NavLink
         to="/dashboard/adminHome"
         className={({ isActive, isPending }) =>
           isPending
@@ -48,7 +57,8 @@ const Navbar = () => {
         }
       >
         Dashboard
-      </NavLink> : <NavLink
+      </NavLink>} 
+      { user && !isAdmin && <NavLink
         to="/dashboard/userHome"
         className={({ isActive, isPending }) =>
           isPending
@@ -64,7 +74,7 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink
+        { user && <NavLink
           to="/dashboard/cart"
           className={({ isActive, isPending }) =>
             isPending
@@ -76,7 +86,7 @@ const Navbar = () => {
         >
           Cart
           <div className="badge badge-secondary ml-2">+{cart?.length}</div>
-        </NavLink>
+        </NavLink>}
       </li>
 
       <li>
@@ -102,29 +112,17 @@ const Navbar = () => {
       <Sticky enabled={true} innerZ={10}>
         <div className="navbar py-4 bg-[#FFDBAC]">
           <div className="navbar-start">
-            <div className="dropdown">
-              <label
-                tabIndex={0}
-                className="btn btn-ghost lg:hidden text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </label>
+            <div className="dropdown mr-2">
+              
+                <button onClick={()=> setIsOpen(!isOpen)}>
+                {
+                  isOpen ? <IoMdClose /> : <AiOutlineMenu />
+                }
+                </button>
+              
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className={ isOpen ? `menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52` : `hidden`}
               >
                 {links}
               </ul>

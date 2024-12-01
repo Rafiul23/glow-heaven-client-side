@@ -37,9 +37,26 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setLoading(true);
-    return signOut(auth);
+    setLoading(true); 
+    const email = user?.email;
+
+    return signOut(auth)
+      .then(() => {
+       
+        if (email) {
+          return axiosPublic.post("/logOut", { email }, { withCredentials: true });
+        }
+      })
+      .finally(() => {
+        setUser(null); 
+        setLoading(false); 
+      })
+      .catch((error) => {
+        console.error("Error during logout:", error);
+        setLoading(false);
+      });
   };
+  
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -57,15 +74,7 @@ const AuthProvider = ({ children }) => {
             }
           });
       } else {
-        axiosPublic
-          .post("/logOut", userInfo, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            if (res.data.success) {
-              setLoading(false);
-            }
-          });
+        setLoading(false);
       }
     });
 

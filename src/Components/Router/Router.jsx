@@ -51,7 +51,7 @@ const router = createBrowserRouter([
           ),
           loader: ({ params }) =>
             fetch(
-              `https://aesthetica-server-site-9lvrk8db1-md-rafiul-islams-projects.vercel.app/product/${params.id}`
+              `http://localhost:5000/product/${params.id}`
             ),
         },
         
