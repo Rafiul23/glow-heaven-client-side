@@ -7,7 +7,7 @@ import { FaCarSide, FaCartShopping, FaUsers } from "react-icons/fa6";
 const AdminHome = () => {
     const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-
+  console.log(user?.photoURL);
   const { data: stats = [] } = useQuery({
     queryKey: ["admin-stats"],
     queryFn: async () => {
@@ -17,7 +17,10 @@ const AdminHome = () => {
   });
     return (
         <div className="py-4">
+           <div className="p-2 flex justify-between items-center">
            <h1 className="text-4xl font-bold">Hi {user?.displayName}! Welcome Back!</h1> 
+           <img src={user?.photoURL} alt=""  className="w-[100px] h-[100px] rounded-full"/>
+           </div>
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 my-5">
             <div className="h-[200px] w-full flex flex-col justify-center items-center text-white bg-purple-500">
             <HiCurrencyDollar className="text-4xl" />
