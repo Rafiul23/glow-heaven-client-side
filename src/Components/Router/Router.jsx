@@ -20,6 +20,7 @@ import ManageOrder from "../ManageOrder/ManageOrder";
 import AddReviews from "../AddReviews/AddReviews";
 import UserHome from "../UserHome/UserHome";
 import AdminHome from "../AdminHome/AdminHome";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -95,18 +96,16 @@ const router = createBrowserRouter([
         // admin
         {
           path: 'adminHome',
-          element: <AdminHome></AdminHome>
+          element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
         },
         {
           path: 'manageProducts',
-          element: <ManageProducts></ManageProducts>
+          element: <AdminRoute><ManageProducts></ManageProducts></AdminRoute>
         },
         {
           path: "updateProduct/:id",
           element: (
-            <PrivateRoute>
-              <UpdateProducts></UpdateProducts>
-            </PrivateRoute>
+            <AdminRoute><UpdateProducts></UpdateProducts></AdminRoute>
           ),
           loader: ({ params }) =>
             fetch(
@@ -116,18 +115,16 @@ const router = createBrowserRouter([
         {
           path: "addProduct",
           element: (
-            <PrivateRoute>
-              <AddProducts></AddProducts>
-            </PrivateRoute>
+            <AdminRoute><AddProducts></AddProducts></AdminRoute>
           ),
         },
         {
           path: 'manageUsers',
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
           path: 'manageOrders',
-          element: <ManageOrder></ManageOrder>
+          element: <AdminRoute><ManageOrder></ManageOrder></AdminRoute>
         }
         
       ]
