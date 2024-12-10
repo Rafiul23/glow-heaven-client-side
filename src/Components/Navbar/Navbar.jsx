@@ -46,20 +46,8 @@ const Navbar = () => {
 
       <li>
       {
-        user && isAdmin && <NavLink
-        to="/dashboard/adminHome"
-        className={({ isActive, isPending }) =>
-          isPending
-            ? "pending"
-            : isActive
-            ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold underline"
-            : ""
-        }
-      >
-        Dashboard
-      </NavLink>} 
-      { user && !isAdmin && <NavLink
-        to="/dashboard/userHome"
+        user && <NavLink
+        to={ isAdmin ? `/dashboard/adminHome` : `/dashboard/userHome`}
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
@@ -70,7 +58,7 @@ const Navbar = () => {
       >
         Dashboard
       </NavLink>
-      }
+      } 
       </li>
 
       <li>
