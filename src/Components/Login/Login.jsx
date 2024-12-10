@@ -110,7 +110,7 @@ const Login = () => {
           <div className="form-control mt-6">
             <button
               disabled={disabled}
-              className="btn bg-[#ffdbac] text-[#800]"
+              className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg"
             >
               Login
             </button>
