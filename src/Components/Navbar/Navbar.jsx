@@ -112,7 +112,7 @@ const Navbar = () => {
       <Sticky enabled={true} innerZ={10}>
         <div className="navbar py-4 bg-[#FFDBAC]">
           <div className="navbar-start">
-            <div className="dropdown mr-2">
+            <div className="dropdown mr-2 lg:hidden">
               
                 <button onClick={()=> setIsOpen(!isOpen)}>
                 {

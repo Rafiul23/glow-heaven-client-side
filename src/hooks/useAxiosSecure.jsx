@@ -16,7 +16,7 @@ const useAxiosSecure = () => {
       return res;
     },
     async (err) => {
-      console.log(err);
+      // console.log(err);
       const status = err?.response?.status;
 
       if (status === 401 || status === 403) {
