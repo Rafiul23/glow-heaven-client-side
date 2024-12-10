@@ -120,10 +120,21 @@ const Navbar = () => {
             </a>
           </div>
           
-          <div className="navbar-end hidden lg:flex">
+          <div className="navbar-center hidden lg:flex">
       
-            <ul className="flex gap-4 px-1">{links}</ul>
-            {user ? (
+            <ul className="flex gap-6 px-1">{links}</ul>
+           
+          </div>
+          <div className="navbar-end">
+            <div>
+              {
+                user && <div className="flex items-center gap-4">
+                  <img className="w-[40px] h-[40px] rounded-full border-2" src={user?.photoURL} alt={user?.displayName} />
+                  <p>{user?.displayName}</p>
+                </div>
+              }
+            </div>
+          {user ? (
               <Link
                 onClick={handleLogOut}
                 className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg ml-4"
