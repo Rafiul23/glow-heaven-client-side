@@ -168,7 +168,7 @@ const Register = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn bg-[#ffdbac] text-[#800]">
+                <button className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg">
                   Register
                 </button>
               </div>
