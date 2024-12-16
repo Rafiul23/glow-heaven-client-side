@@ -21,7 +21,6 @@ const Dashboard = () => {
     try {
       await logOut();
       navigate('/');
-      
     } catch (error) {
       console.error("Error logging out:", error);
     }
