@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FaHome, FaShoppingCart, FaBook, FaCar, FaList, FaStar, FaUsers } from "react-icons/fa";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -6,13 +6,26 @@ import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import useCart from "../../hooks/useCart";
 import useAdmin from "../../hooks/useAdmin";
+import { AiOutlineLogout } from "react-icons/ai";
+import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const { cart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
-
+  const {logOut} = useAuth();
   const handleToggleMenu = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate('/');
+      
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   return (
     <div className="flex flex-row md:gap-4">
@@ -97,6 +110,11 @@ const Dashboard = () => {
               <NavLink to="/">
                 <FaHome className="mr-2" /> Home
               </NavLink>
+            </li>
+            <li className="flex">
+              
+              <button onClick={handleLogOut}> <AiOutlineLogout className="mr-2" /> LogOut</button>
+             
             </li>
           </ul>
         </div>

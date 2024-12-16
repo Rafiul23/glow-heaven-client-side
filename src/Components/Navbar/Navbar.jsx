@@ -16,17 +16,10 @@ const Navbar = () => {
 
   const {cart} = useCart();
   const [isOpen, setIsOpen] = useState(false);
-  const { user, logOut } = useAuth();
+  const { user } = useAuth();
   const [isAdmin] = useAdmin();
   
-  const handleLogOut = async () => {
-    try {
-      await logOut();
-      console.log("Logged out successfully!");
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
+  
 
   const links = (
     <>
@@ -127,22 +120,15 @@ const Navbar = () => {
            
           </div>
           <div className="navbar-end">
-            <div>
+            
+          {user ? <div>
               {
-                user && <div className="flex items-center gap-4">
+                user && <div className="flex items-center gap-2">
                   <img className="w-[40px] h-[40px] rounded-full border-2" src={user?.photoURL} alt={user?.displayName} />
-                  <p>{user?.displayName}</p>
+                  <p className="text-sm">{user?.displayName}</p>
                 </div>
               }
-            </div>
-          {user ? (
-              <Link
-                onClick={handleLogOut}
-                className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg ml-4"
-              >
-                LogOut
-              </Link>
-            ) : (
+            </div> : (
               <Link
                 to="/login"
                 className="btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 transition-colors duration-300 text-white rounded-lg ml-4"
