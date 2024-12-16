@@ -27,7 +27,7 @@ const Speciality = () => {
                     </div>
 
                    
-                    <div className="flex justify-center items-center w-full h-[200px] md:h-[250px] rounded-xl">
+                    <div className="flex justify-center items-center w-full h-[100px] md:h-[250px] rounded-xl">
                         <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-bold text-center">
                             500+ Beauty Products
                         </h2>
