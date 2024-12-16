@@ -46,7 +46,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg hover:shadow-[0px_4px_15px_0px_rgba(192,88,243,0.4)] transition-shadow duration-300 flex gap-4 overflow-hidden">
+    <div className="bg-white shadow-lg hover:shadow-[0px_4px_15px_0px_rgba(192,88,243,0.4)] transition-shadow duration-300 flex md:flex-row flex-col  gap-4 overflow-hidden">
       <div className="flex-1 flex justify-center items-center">
         <figure>
           <img
