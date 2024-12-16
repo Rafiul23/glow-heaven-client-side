@@ -12,13 +12,13 @@ const Banner = () => {
     <div>
       <Swiper pagination={true} autoplay={true} modules={[Pagination, Autoplay]} className="mySwiper">
         <SwiperSlide>
-            <img src={slider_1} className="h-[500px]" alt="" />
+            <img src={slider_1} className="md:h-[500px] h-[250px]" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src={slider_2} className="h-[500px]" alt="" />
+            <img src={slider_2} className="md:h-[500px] h-[250px]" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src={slider_3} className="h-[500px]" alt="" />
+            <img src={slider_3} className="md:h-[500px] h-[250px]" alt="" />
         </SwiperSlide>
         
       </Swiper>

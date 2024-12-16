@@ -2,23 +2,30 @@ import { Parallax } from "react-parallax";
 
 const CoverImage = ({ img, title }) => {
   return (
-    <Parallax
-      blur={{ min: -15, max: 15 }}
-      bgImage={img}
-      bgImageAlt="image"
-      strength={-200}
-    >
-      <div
-        className="hero h-[400px]"
+    <div>
+      <Parallax
+        blur={{ min: -15, max: 15 }}
+        bgImage={img}
+        bgImageAlt="image"
+        strength={-200}
+        bgImageStyle={{
+          objectFit: "cover", 
+          objectPosition: "center", 
+        }}
       >
-        <div className="text-center">
-          <div className="w-[900px] flex justify-center items-center flex-col h-[250px] bg-black opacity-60 text-white">
-            <h1 className="mb-5 text-5xl font-bold uppercase">{title}</h1>
-            <p className="mb-5 uppercase">Choose your favorite produucts from {title}</p>
+        
+        <div className="w-full" style={{ paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[90%] max-w-[900px] bg-black opacity-60 text-white p-5 text-center">
+              <h1 className="text-lg md:text-3xl lg:text-5xl font-bold uppercase">{title}</h1>
+              <p className="mt-2 text-sm md:text-base lg:text-lg uppercase">
+                Choose your favorite products from {title}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </Parallax>
+      </Parallax>
+    </div>
   );
 };
 
