@@ -18,6 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useAuth();
   const [isAdmin] = useAdmin();
+  
   const handleLogOut = async () => {
     try {
       await logOut();

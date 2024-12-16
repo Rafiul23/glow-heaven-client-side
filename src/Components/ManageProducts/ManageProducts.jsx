@@ -11,7 +11,9 @@ const ManageProducts = () => {
   const { data: products = [], refetch } = useQuery({
     queryKey: ["products"],
     queryFn: () =>
-      fetch("http://localhost:5000/products").then((res) => res.json())
+      fetch("https://glow-heaven-server.vercel.app/products").then((res) =>
+        res.json()
+      ),
   });
 
   const handleDeleteItem = (_id) => {
@@ -70,15 +72,16 @@ const ManageProducts = () => {
                         <img src={item.productImg} alt="product" />
                       </div>
                     </div>
-                    
                   </div>
                 </td>
                 <td>{item.productName}</td>
                 <td>$ {item.price}</td>
                 <td>
-                    <Link to={`/dashboard/updateProduct/${item?._id}`}>
-                    <button className="btn bg-[#ffdbac] text-[#800]">Update</button>
-                    </Link>
+                  <Link to={`/dashboard/updateProduct/${item?._id}`}>
+                    <button className="btn bg-[#ffdbac] text-[#800]">
+                      Update
+                    </button>
+                  </Link>
                 </td>
                 <td>
                   <button
