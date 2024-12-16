@@ -13,11 +13,11 @@ const OrderedCard = ({product}) => {
       } = product;
 
     return (
-        <div className="border-2 border-purple-500 grid grid-cols-3 gap-4">
-            <div>
+        <div className="border-2 border-purple-500 grid md:grid-cols-3 grid-cols-1 gap-4 py-4">
+            <div className="flex justify-center items-center">
                 <img src={productImg} className="w-[100px] h-[100px]" alt={productName} />
             </div>
-            <div className="py-2">
+            <div className="py-2 text-center md:text-left">
           <h2 className="text-2xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
             {productName}
           </h2>
