@@ -1,7 +1,5 @@
-website live link -> https://6533e1ead9bdce30108c9785--glittering-dragon-4a6433.netlify.app/
+website live link -> https://glow-heaven.netlify.app/
 
-<li>This website is about makeup brand shop</li>
-<li>Here a user have to login with email and password or by google to visit different pages.</li>
-<li>A logged in user can add product, can update a product's details.</li>
-<li>A loggedin user can also add his favorite products to cart collections.And the cart collection is different for different users.</li>
-<li>If a loggedin user wants to delete a product from his cart collection, he can do it by clicking the delete button. </li>
+<li>- **Diverse Product Offering:** Showcased six brands with six products each, enabling users to explore a wide range of makeup items. </li> 
+<li>- **User-Friendly Shopping:** Implemented cart functionality, secure Visa payment integration, and a review system for seamless customer experience.</li>  
+<li>- **Robust Management Tools:** Equipped admins with features to manage products, user roles, and operations, supported by modern technologies like React, Express, and MongoDB.</li>  
